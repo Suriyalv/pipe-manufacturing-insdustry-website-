@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link  rel="stylesheet" href="basic.css">
+<title>Price Calculator</title>
+<style>
+    body {
+        background-image: url("land4.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        font-family: Arial, sans-serif;
+    }
+    .container {
+        background-color: white;
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    input[type="number"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    button {
+        background-color: #ab74f3;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+    }
+    button:hover {
+        background-color: #7218e7;
+    }
+    #total-price {
+        margin-top: 20px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+    <center><ul class="blue" ><h1 style=" color:whitesmoke ;text-shadow: 2px 2px 2px black;"> Sri Sabari Pipes</h1></ul></center>
+      <ul>
+          <li><a class="active" href="mini project.html">Home</a></li>
+          
+          <li class="dropdown">
+            <a   class="dropbtn" href="Untitled-1.html">Product</a>
+            <div class="dropdown-content">
+              <a href="hdpe.html"> HDPE PIPE</a>
+              <a href="pvc.html"> PVC PIPE</a>
+              <a href="watertank.html"> WATER TANKS</a>
+              <a href="fitting.html"> PIPE FITTINGS</a>
+              <a href="clamps.html"> CLAMPS</a>
+            </div>
+          </li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="order.php">Place order</a></li>
+          <li><a href="calculator.html">Price Calculator</a></li>
+          <li style="float:right"><a href="about.html">About us</a></li>
+        </ul><br><br>
+
+<div class="container">
+    <h2>Price Calculator</h2>
+    <label for="length">Length (in meters) or Quantity:</label>
+    <input type="number" id="length" placeholder="Enter length or quantity" min="0" step="0.01">
+    <label for="price">Price per meter or Price per piece:</label>
+    <input type="number" id="price" placeholder="Enter price per meter or per piece" min="0" step="0.01">
+    <button onclick="calculateTotal()">Calculate Total Price</button>
+    <div id="total-price"></div>
+</div>
+
+<script>
+function calculateTotal() {
+    var lengthOrQuantity = parseFloat(document.getElementById('length').value);
+    var pricePerUnit = parseFloat(document.getElementById('price').value);
+    
+    // Check if length or quantity is greater than zero
+    if (lengthOrQuantity <= 0) {
+        alert("Length or quantity must be greater than zero.");
+        return;
+    }
+    
+    var totalPrice = lengthOrQuantity * pricePerUnit;
+    
+    document.getElementById('total-price').innerHTML = "Total Price: Rs" + totalPrice.toFixed(2);
+}
+</script>
+
+</body>
+</html>
